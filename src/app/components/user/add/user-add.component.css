@@ -1,0 +1,38 @@
+.test-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.test-container-bg {
+  background-color: rgba(230, 230, 230, 0.04);
+}
+
+.test-ontainer > * {
+  width: 100%;
+}
+
+.test-container form {
+  margin-bottom: 20px;
+}
+
+.test-container form > * {
+  margin: 5px 0;
+}
+
+.test-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.dialog-panel_actions {
+  display: block;
+  flex: none;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 16px 24px;
+  margin: 0 -24px -24px -24px;
+  text-align: right;
+}
+
+.dialog-panel_actions > * {
+  margin-left: 16px !important;
+}

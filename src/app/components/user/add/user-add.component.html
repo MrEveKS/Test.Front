@@ -1,0 +1,54 @@
+<div class="test-container">
+  <form [formGroup]="form" class="test-container test-container-bg col-md-6">
+    <ng-container
+      *ngTemplateOutlet="inputValue; context: { controlName: 'firstName', placeholder: 'First Name' }">
+    </ng-container>
+
+    <ng-container
+      *ngTemplateOutlet="inputValue; context: { controlName: 'lastName', placeholder: 'Last Name' }">
+    </ng-container>
+
+    <mat-form-field>
+      <mat-select
+        formControlName="gender">
+        <mat-option *ngFor="let gder of genders"
+            value="{{ gder.value }}">
+            {{ gder.label }}
+        </mat-option>
+      </mat-select>
+      <mat-label><mat-icon>people</mat-icon> <b> Select</b> <i> gender</i></mat-label>
+    </mat-form-field>
+
+    <ng-container
+      *ngTemplateOutlet="inputValue; context: { controlName: 'email', placeholder: 'Enter your email' }">
+    </ng-container>
+
+    <mat-checkbox formControlName="lookingForJob">
+      Looking for job
+    </mat-checkbox>
+
+    <div>
+      <label>Job type: </label>
+      <mat-radio-group formControlName="jobType">
+        <mat-radio-button *ngFor="let jobType of jobTypes" value="{{ jobType.value }}">{{ jobType.label }}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <ng-template #inputValue let-controlName="controlName" let-placeholder="placeholder">
+      <mat-form-field>
+        <input matInput
+          [placeholder]="placeholder"
+          [formControlName]="controlName" required>
+        <mat-error *ngIf="form.get(controlName).invalid">
+          {{ getErrorMessage(form.get(controlName)) }}
+        </mat-error>
+      </mat-form-field>
+    </ng-template>
+
+    <div class="dialog-panel_actions">
+      <button *ngIf="editable" mat-button type="button" color="primary" (click)="clear()">Clear</button>
+      <button *ngIf="editable" mat-raised-button type="button" color="primary" (click)="submit()">Save</button>
+      <button *ngIf="!editable" mat-raised-button type="button" color="primary" (click)="edit()">Edit</button>
+    </div>
+  </form>
+</div>

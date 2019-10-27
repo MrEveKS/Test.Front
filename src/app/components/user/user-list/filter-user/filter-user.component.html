@@ -1,0 +1,10 @@
+<mat-form-field class="col-md-6">
+      <input matInput type="text" (keydown.enter)="filtrerValue()" placeholder="User name filer" class="name-filter" name="userNameFilter" [(ngModel)]="filterValue">
+    <button mat-button type="button"
+      matSuffix
+      mat-icon-button
+      aria-label="Filtred"
+      (click)="filtrerValue()">
+      <mat-icon>search</mat-icon>
+    </button>
+</mat-form-field>
