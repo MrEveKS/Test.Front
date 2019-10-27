@@ -73,6 +73,8 @@ export class UserAddComponent implements OnInit {
       .subscribe({
         next: (deleted) => {
           if (deleted) {
+            this.user = null;
+            this.form.reset();
             this.router.navigate(['/user/add']);
           }
         }

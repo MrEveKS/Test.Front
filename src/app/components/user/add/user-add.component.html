@@ -48,6 +48,7 @@
     <div class="dialog-panel_actions">
       <button *ngIf="editable" mat-button type="button" color="primary" (click)="clear()">Clear</button>
       <button *ngIf="editable" mat-raised-button type="button" color="primary" (click)="submit()">Save</button>
+      <button *ngIf="!editable" mat-raised-button type="button" color="warn" (click)="delete()">Remove</button>
       <button *ngIf="!editable" mat-raised-button type="button" color="primary" (click)="edit()">Edit</button>
     </div>
   </form>

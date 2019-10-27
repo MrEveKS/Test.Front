@@ -30,7 +30,7 @@ export class AddService extends BaseRequest {
   }
 
   public deleteUser(id: number): Observable<boolean> {
-    return this.delete<boolean>(id);
+    return this.delete<boolean>({ id }, 'postDelete');
   }
 
 }

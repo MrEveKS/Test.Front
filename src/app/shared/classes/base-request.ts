@@ -16,12 +16,7 @@ export class BaseRequest {
   }
 
   protected get<T, U = {}>(parametres?: U, methodName?: string): Observable<T> {
-    let params: HttpParams = new HttpParams();
-    // tslint:disable-next-line: no-unused-expression
-    parametres && Object.keys(parametres).forEach((key) => {
-      params = params.set(String(key), String(parametres[key]));
-    });
-
+    const params: HttpParams = this._getHttpParams(parametres);
     return this.httpClient.get(`${this.API_URL}/api/${this.controll}/${methodName || 'get'}`,
       { params, headers: this.headers })
       .pipe(
@@ -45,11 +40,23 @@ export class BaseRequest {
       );
   }
 
-  protected delete<T>(id?: number): Observable<T> {
-    return this.httpClient.delete(`${this.API_URL}/api/${this.controll}/{id}`, { headers: this.headers })
+  protected delete<T, U = {}>(parametres?: U, methodName?: string): Observable<T> {
+    const params: HttpParams = this._getHttpParams(parametres);
+    return this.httpClient.delete(`${this.API_URL}/api/${this.controll}/${methodName || 'delete'}`,
+      { params, headers: this.headers })
       .pipe(
         map((data) => data as T)
       );
+  }
+
+  private _getHttpParams<T>(parametres?: T): HttpParams {
+    let params: HttpParams = new HttpParams();
+    // tslint:disable-next-line: no-unused-expression
+    parametres && Object.keys(parametres).forEach((key) => {
+      params = params.set(String(key), String(parametres[key]));
+    });
+
+    return params;
   }
 
 }
