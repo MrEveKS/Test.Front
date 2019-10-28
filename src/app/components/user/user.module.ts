@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './add/user-add.component';
@@ -36,6 +38,11 @@ import { MaterialModule } from '../../material/material.module';
     MatSelectModule,
     MatTooltipModule,
     MaterialModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
+  providers: [
+    MatDatepickerModule,
   ],
   entryComponents: [
     UserAddComponent,

@@ -13,9 +13,6 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            },
             "outputPath": "dist/test-front",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -27,17 +24,12 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "customWebpackConfig": {
-                "path": "./webpack.config.js"
-              },
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

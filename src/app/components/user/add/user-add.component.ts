@@ -124,6 +124,7 @@ export class UserAddComponent implements OnInit {
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
       gender: new FormControl(null),
+      sameDate: new FormControl(new Date()),
       email: new FormControl('', [Validators.required, Validators.email]),
       lookingForJob: new FormControl(true),
       jobType: new FormControl('inOffice'),

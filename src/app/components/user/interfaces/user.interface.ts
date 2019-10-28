@@ -4,6 +4,7 @@ export interface UserInterface {
   firstName: string;
   lastName: string;
   gender?: string;
+  sameDate?: Date;
   jobType?: string;
   lookingForJob?: boolean;
 }
